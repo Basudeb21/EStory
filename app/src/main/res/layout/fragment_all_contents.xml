@@ -3,15 +3,737 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BottomMenuFragments.LibraryFragments.AllContents">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="All Contents Fragment"
-        android:textSize="40dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        />
+        android:fillViewport="true"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Morning Mist"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Basudeb Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="7.7M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="1.5M Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story2"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Dear October"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Niladittya Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="4.1M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="555k Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Morning Mist"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Basudeb Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="7.7M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="1.5M Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story2"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Dear October"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Niladittya Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="4.1M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="555k Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="10dp"
+            style="@android:style/Widget.Button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/story"
+                    android:scaleType="fitCenter"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:text="Morning Mist"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Basudeb Paul"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="7.7M views"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_auth"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="1.5M Likes"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_auth"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="Download"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue"
+                        android:textSize="18sp"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="15dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story2"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Dear October"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Niladittya Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="4.1M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="555k Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="10dp"
+            style="@android:style/Widget.Button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/story"
+                    android:scaleType="fitCenter"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:text="Morning Mist"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Basudeb Paul"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="7.7M views"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_auth"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="1.5M Likes"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_auth"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="Download"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue"
+                        android:textSize="18sp"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="15dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story2"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Dear October"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Niladittya Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="4.1M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="555k Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="10dp"
+            style="@android:style/Widget.Button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/story"
+                    android:scaleType="fitCenter"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:text="Morning Mist"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Basudeb Paul"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="7.7M views"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_auth"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="1.5M Likes"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_auth"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="110sp"
+                        android:layout_height="20sp"
+                        android:text="Download"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue"
+                        android:textSize="18sp"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="15dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="10dp"
+                style="@android:style/Widget.Button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/story2"
+                        android:scaleType="fitCenter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Dear October"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Niladittya Paul"
+                            android:textColor="@color/secondary"/>
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="4.1M views"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="555k Likes"
+                            android:textStyle="bold"
+                            android:textColor="@color/card_auth"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:layout_width="110sp"
+                            android:layout_height="20sp"
+                            android:text="Download"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:textSize="18sp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <!-- Add more CardView elements here -->
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

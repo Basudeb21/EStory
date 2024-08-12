@@ -32,7 +32,7 @@ class Library : Fragment() {
         viewPager = view.findViewById(R.id.tab_page)
 
         adapter = FragmentAdaper(childFragmentManager, lifecycle)
-        adapter.addFragment(AllContents(), "All Contents")
+        adapter.addFragment(AllContents(), "Online stories")
         adapter.addFragment(Downloads(), "Downloads")
 
         viewPager.adapter = adapter

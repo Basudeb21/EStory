@@ -16,7 +16,7 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="All Contents"
+                android:text="Online stories"
                 />
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
