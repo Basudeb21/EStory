@@ -1,0 +1,1884 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BottomMenuFragments.HomeFragments.RecomandedFragment">
+
+    <!-- Add a ScrollView to enable vertical scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_parent"
+                android:layout_marginTop="10dp"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Most viewed"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/card_txt" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="7.7M views"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="5.7M views"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="7.7M views"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="5.7M views"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Morning Mist"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Basudeb Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="7.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="5.7M views"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Morning Mist"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Basudeb Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="7.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="5.7M views"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_parent"
+                android:layout_marginTop="10dp"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="E-Story Primium"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/card_txt" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹100 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹78 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹100 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹78 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹100 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹78 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹100 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="₹78 INR"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/card_parent"
+            android:layout_marginTop="10dp"
+            android:paddingStart="12dp"
+            android:paddingTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="For You"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/card_txt" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Morning Mist"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Basudeb Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="7.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story2" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Dear October"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Niladittya Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="5.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Morning Mist"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Basudeb Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="7.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story2" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Dear October"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Niladittya Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="5.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Morning Mist"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Basudeb Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="7.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story2" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Dear October"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Niladittya Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="5.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Morning Mist"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Basudeb Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="7.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/story2" />
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="27sp"
+                                android:text="Dear October"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="15sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="Niladittya Paul"
+                                android:textStyle="bold"
+                                android:textColor="@color/secondary"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                            <TextView
+                                android:layout_width="110sp"
+                                android:layout_height="20sp"
+                                android:text="5.7M views"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_auth"
+                                android:textSize="12sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_parent"
+                android:layout_marginTop="10dp"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tranding"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/card_txt" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#1 on trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#2 on Trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#1 on trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#2 on Trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#1 on trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#2 on Trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#1 on trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="#2 on Trand"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_parent"
+                android:layout_marginTop="10dp"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Most Liked"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/card_txt" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="1m Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="555k Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="1m Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="555k Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="1m Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="555k Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Morning Mist"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Basudeb Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="1m Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="20dp">
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/story2" />
+                                <TextView
+                                    android:layout_width="130sp"
+                                    android:layout_height="27sp"
+                                    android:text="Dear October"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="15sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="Niladittya Paul"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                                <TextView
+                                    android:layout_width="110sp"
+                                    android:layout_height="20sp"
+                                    android:text="555k Likes"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/card_auth"
+                                    android:textSize="12sp"
+                                    android:gravity="center" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

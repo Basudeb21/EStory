@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Home"
+            android:icon="@drawable/home"
+            android:id="@+id/side_home"/>
+        <item
+            android:title="Story"
+            android:icon="@drawable/books"
+            android:id="@+id/side_story"/>
+        <item
+            android:title="Upload"
+            android:icon="@drawable/pencil"
+            android:id="@+id/side_upload"/>
+        <item
+            android:title="Notification"
+            android:icon="@drawable/notifications"
+            android:id="@+id/side_notification"/>
+        <item
+            android:title="Membership"
+            android:icon="@drawable/membership"
+            android:id="@+id/side_membership"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Profile">
+            <menu>
+                <item
+                    android:title="Account"
+                    android:icon="@drawable/profile"
+                    android:id="@+id/side_profile"/>
+                <item
+                    android:title="Logout"
+                    android:icon="@drawable/logout"
+                    android:id="@+id/side_logout"/>
+            </menu>
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Help">
+            <menu>
+                <item android:id="@+id/side_settings"
+                    android:title="Settings"
+                    android:icon="@drawable/settings"/>
+                <item android:id="@+id/side_contacts"
+                    android:title="Contact us"
+                    android:icon="@drawable/contact"/>
+
+            </menu>
+
+        </item>
+    </group>
+
+</menu>
