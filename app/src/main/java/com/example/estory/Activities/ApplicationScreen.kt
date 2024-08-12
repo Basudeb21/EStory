@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.estory.BottomMenuFragments.*
+import com.example.estory.BottomMenuFragments.SideNavItems.ContactUsFragment
 import com.example.estory.BottomMenuFragments.SideNavItems.Profile
 import com.example.estory.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -80,6 +81,10 @@ class ApplicationScreen : AppCompatActivity() {
             }
             else if(item.itemId == R.id.side_profile){
                 replaceFragment(Profile())
+                navView.setCheckedItem(R.id.side_profile)
+            }
+            else if(item.itemId == R.id.side_contacts){
+                replaceFragment(ContactUsFragment())
                 navView.setCheckedItem(R.id.side_profile)
             }
             navHandler(item)
