@@ -1,4 +1,4 @@
-package com.example.estory.BottomMenuFragments.SideNavItems
+package com.example.estory.SideNavItems
 
 import android.content.Intent
 import android.net.Uri

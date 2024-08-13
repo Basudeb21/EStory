@@ -9,11 +9,13 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.estory.BottomMenuFragments.*
-import com.example.estory.BottomMenuFragments.SideNavItems.ContactUsFragment
-import com.example.estory.BottomMenuFragments.SideNavItems.Profile
+import com.example.estory.Fetures.SearchFragment
+import com.example.estory.SideNavItems.ContactUsFragment
+import com.example.estory.SideNavItems.Profile
 import com.example.estory.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class ApplicationScreen : AppCompatActivity() {
@@ -35,6 +37,11 @@ class ApplicationScreen : AppCompatActivity() {
         init()
 
         replaceFragment(Home())
+
+        val search_btn = findViewById<CircleImageView>(R.id.search)
+        search_btn.setOnClickListener{
+            replaceFragment(SearchFragment())
+        }
 
         navbar.setOnItemSelectedListener { item: MenuItem ->
             if (item.itemId == R.id.home){
