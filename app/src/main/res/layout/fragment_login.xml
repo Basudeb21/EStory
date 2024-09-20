@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/read_10000_stories_in_your_mother_tounge"
+            android:text="Be the author of your own readers"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="18sp"
