@@ -1,9 +1,9 @@
 package com.example.estory.Activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -32,7 +32,6 @@ class ApplicationScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_application_screen)
         init()
 
@@ -94,6 +93,11 @@ class ApplicationScreen : AppCompatActivity() {
                 replaceFragment(ContactUsFragment())
                 navView.setCheckedItem(R.id.side_profile)
             }
+            else if (item.itemId == R.id.side_logout) {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+
             navHandler(item)
             true
         }

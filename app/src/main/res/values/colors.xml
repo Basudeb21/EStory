@@ -16,5 +16,7 @@
     <color name="card_parent">#F8EDE3</color>
     <color name="blue">#1160FF</color>
     <color name="card_overlay_txt">#FFFF80</color>
+    <color name="pink">#F80056</color>
+
 
 </resources>

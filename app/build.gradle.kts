@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -31,27 +32,40 @@ android {
         viewBinding = true
     }
 
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
+    // Firebase BoM (Bill of Materials) to manage Firebase versions
+    implementation(platform(libs.firebase.bom))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
+    // Firebase SDKs
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.analytics.ktx)
+
+    // Other dependencies
+    implementation(libs.androidx.core.ktx.v1101)
+    implementation(libs.androidx.appcompat.v170)
+    implementation(libs.material.v1120)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.constraintlayout)
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("androidx.cardview:cardview:1.0.0")
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.circleimageview)
+    implementation(libs.androidx.cardview)
 
+
+
+    // Test dependencies
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v115)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

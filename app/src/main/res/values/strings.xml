@@ -4,4 +4,12 @@
     <string name="logo">logo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="jhon_doe">Jhon Doe</string>
+    <string name="english">English</string>
+    <string name="read_10000_stories_in_your_mother_tounge">Read 10000+ stories in your mother tounge!</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="todo">TODO</string>
+
 </resources>

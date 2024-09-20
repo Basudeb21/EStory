@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var info = Information()
         Handler().postDelayed({
-            startActivity(Intent(this, ApplicationScreen::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         },info.SPLASH_TIME_OUT)
     }
