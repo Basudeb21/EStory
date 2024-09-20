@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginFragments.LoginFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+
+
+
+        <!-- App Logo and Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center"
+                app:civ_border_width="1dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="25sp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/active_color" />
+        </LinearLayout>
+
+        <!-- Signup Illustration -->
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/signup"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Intro Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/read_10000_stories_in_your_mother_tounge"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp" />
+
+        <!-- Email Input Field -->
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10sp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/custom_edit_text"
+            android:hint="Enter your email id"
+            android:inputType="textEmailAddress"
+            android:paddingStart="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!-- Password Prompt -->
+
+        <!-- Password Input Field -->
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10sp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/custom_edit_text"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:paddingStart="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/create_account_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Login Account"
+            android:backgroundTint="@color/secondary" />
+
+        <TextView
+            android:id="@+id/sign_me_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="don't have an account? Signup Here"
+            android:textColor="@color/blue"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
