@@ -41,6 +41,11 @@ class ApplicationScreen : AppCompatActivity() {
         search_btn.setOnClickListener{
             replaceFragment(SearchFragment())
         }
+        val profile_btn = findViewById<CircleImageView>(R.id.profile_pic)
+        profile_btn.setOnClickListener{
+            replaceFragment(Profile())
+        }
+
 
         navbar.setOnItemSelectedListener { item: MenuItem ->
             if (item.itemId == R.id.home){

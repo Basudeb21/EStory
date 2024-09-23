@@ -1,6 +1,5 @@
 package com.example.estory.LoginFragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,12 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.estory.Activities.ApplicationScreen
 import com.example.estory.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.example.estory.SideNavItems.Profile // Import your Profile fragment
+import com.example.estory.SideNavItems.SubItems.EditProfile
 
 class SignupFragment : Fragment() {
 
@@ -49,7 +49,7 @@ class SignupFragment : Fragment() {
             val loginFragment = LoginFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout, loginFragment) // Replace with your container ID
-                .addToBackStack(null) // Add to back stack if you want to navigate back
+                .addToBackStack(null)
                 .commit()
         }
 
@@ -80,10 +80,11 @@ class SignupFragment : Fragment() {
                     database.child("estory").child("users").child(userId!!).setValue(userData)
                         .addOnSuccessListener {
                             Toast.makeText(activity, "Account created successfully", Toast.LENGTH_SHORT).show()
-                            // Redirect to ApplicationScreen
-                            val intent = Intent(activity, ApplicationScreen::class.java)
-                            startActivity(intent)
-                            activity?.finish() // Optionally finish the current activity
+                            // Redirect to ProfileFragment after sign-up
+                            val profileFragment = EditProfile()
+                            parentFragmentManager.beginTransaction()
+                                .replace(R.id.frame_layout, profileFragment) // Replace with your container ID
+                                .commit()
                         }
                         .addOnFailureListener {
                             Toast.makeText(activity, "Failed to save user data", Toast.LENGTH_SHORT).show()
@@ -95,4 +96,3 @@ class SignupFragment : Fragment() {
             }
     }
 }
-
