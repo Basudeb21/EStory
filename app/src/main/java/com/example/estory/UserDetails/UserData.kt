@@ -12,6 +12,15 @@ class UserData {
         var nickname: String? = null
         var language: String? = null
         // Add other user details as needed
+
+
+        fun clear(){
+            email = null
+            name = null
+            phoneNumber = null
+            nickname = null
+            language = null
+        }
     }
 
 

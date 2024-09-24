@@ -15,7 +15,6 @@ import com.example.estory.R
 import com.example.estory.UserDetails.UserData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
 
@@ -38,6 +37,13 @@ class LoginFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
+        // Check if user is already logged in
+        if (auth.currentUser != null) {
+            // User is already logged in, fetch details and go to ApplicationScreen
+            val userId = auth.currentUser?.uid
+            userId?.let { fetchDetails(it) }
+        }
+
         // Handle button clicks
         loginButton.setOnClickListener {
             loginUser()
@@ -45,7 +51,7 @@ class LoginFragment : Fragment() {
 
         signup = view.findViewById(R.id.sign_me_up)
         signup.setOnClickListener {
-            // Navigate to LoginFragment
+            // Navigate to SignupFragment
             val signupFragment = SignupFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout, signupFragment) // Replace with your container ID
@@ -73,20 +79,16 @@ class LoginFragment : Fragment() {
                 if (task.isSuccessful) {
                     val userId = auth.currentUser?.uid
                     userId?.let {
-                        fetchDetails(it)
+                        fetchDetails(it) // Fetch details now
                     }
-
                     Toast.makeText(activity, "Login successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(activity, ApplicationScreen::class.java)
-                    startActivity(intent)
-                    activity?.finish()
                 } else {
                     Toast.makeText(activity, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun fetchDetails(uid: String){
+    private fun fetchDetails(uid: String) {
         val database = FirebaseDatabase.getInstance().reference
         database.child("estory").child("users").child(uid).child("profile").get()
             .addOnSuccessListener { snapshot ->
@@ -107,13 +109,11 @@ class LoginFragment : Fragment() {
                     // Redirect to ApplicationScreen
                     val intent = Intent(activity, ApplicationScreen::class.java)
                     startActivity(intent)
-                    activity?.finish()
+                    activity?.finish() // Close LoginFragment
                 }
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Failed to fetch user data", Toast.LENGTH_SHORT).show()
             }
-
     }
-
 }
