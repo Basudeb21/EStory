@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,96 +14,58 @@ import com.example.estory.Fetures.SearchFragment
 import com.example.estory.SideNavItems.ContactUsFragment
 import com.example.estory.SideNavItems.Profile
 import com.example.estory.R
+import com.example.estory.UserDetails.UserData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import de.hdodenhof.circleimageview.CircleImageView
 
-
 class ApplicationScreen : AppCompatActivity() {
 
-    lateinit var navbar: BottomNavigationView
+    private lateinit var navbar: BottomNavigationView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var u_name: TextView
+    private lateinit var u_mail: TextView
+    private lateinit var u_nname: TextView
 
     private fun init() {
         navbar = findViewById(R.id.navbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.side_nav)
+        val headerView = navView.getHeaderView(0)
+        u_name = headerView.findViewById(R.id.user_name)
+        u_mail = headerView.findViewById(R.id.user_mail)
+        u_nname = headerView.findViewById(R.id.user_nick_name)
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application_screen)
         init()
 
+        u_name.text = UserData.name
+        u_nname.text = UserData.nickname
+        u_mail.text = UserData.email
+
         replaceFragment(Home())
 
-        val search_btn = findViewById<CircleImageView>(R.id.search)
-        search_btn.setOnClickListener{
+        findViewById<CircleImageView>(R.id.search).setOnClickListener {
             replaceFragment(SearchFragment())
         }
-        val profile_btn = findViewById<CircleImageView>(R.id.profile_pic)
-        profile_btn.setOnClickListener{
+        findViewById<CircleImageView>(R.id.profile_pic).setOnClickListener {
             replaceFragment(Profile())
         }
 
-
-        navbar.setOnItemSelectedListener { item: MenuItem ->
-            if (item.itemId == R.id.home){
-                navView.setCheckedItem(R.id.side_home)
-            }
-            else if (item.itemId == R.id.story){
-                navView.setCheckedItem(R.id.side_story)
-            }
-            else if (item.itemId == R.id.pencil){
-                navView.setCheckedItem(R.id.side_upload)
-            }
-            else if (item.itemId == R.id.notification){
-                navView.setCheckedItem(R.id.side_notification)
-            }
-            else if (item.itemId == R.id.membership){
-                navView.setCheckedItem(R.id.side_membership)
-            }
-
+        navbar.setOnItemSelectedListener { item ->
             navHandler(item)
-
         }
 
-        val menuButton: View = findViewById(R.id.menu)
-        menuButton.setOnClickListener {
+        findViewById<View>(R.id.menu).setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
-
         navView.setNavigationItemSelectedListener { item ->
             drawerLayout.closeDrawer(GravityCompat.START)
-            if (item.itemId == R.id.side_story){
-                navbar.selectedItemId = R.id.story
-            }
-            else if (item.itemId == R.id.side_home){
-                navbar.selectedItemId = R.id.home
-            }
-            else if (item.itemId == R.id.side_upload){
-                navbar.selectedItemId = R.id.pencil
-            }
-            else if (item.itemId == R.id.side_notification){
-                navbar.selectedItemId = R.id.notification
-            }
-            else if (item.itemId == R.id.side_membership){
-                navbar.selectedItemId = R.id.membership
-            }
-            else if(item.itemId == R.id.side_profile){
-                replaceFragment(Profile())
-                navView.setCheckedItem(R.id.side_profile)
-            }
-            else if(item.itemId == R.id.side_contacts){
-                replaceFragment(ContactUsFragment())
-                navView.setCheckedItem(R.id.side_profile)
-            }
-            else if (item.itemId == R.id.side_logout) {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            }
-
             navHandler(item)
             true
         }
@@ -120,17 +83,27 @@ class ApplicationScreen : AppCompatActivity() {
             R.id.side_upload -> replaceFragment(Upload())
             R.id.side_notification -> replaceFragment(Notification())
             R.id.side_membership -> replaceFragment(Membership())
-
+            R.id.side_profile -> {
+                replaceFragment(Profile())
+                navView.setCheckedItem(R.id.side_profile)
+            }
+            R.id.side_contacts -> {
+                replaceFragment(ContactUsFragment())
+                navView.setCheckedItem(R.id.side_contacts)
+            }
+            R.id.side_logout -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
         return true
     }
 
-
-
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.addToBackStack(null) // Optionally add to back stack
         fragmentTransaction.commit()
     }
 }

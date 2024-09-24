@@ -12,7 +12,10 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.estory.Activities.ApplicationScreen
 import com.example.estory.R
+import com.example.estory.UserDetails.UserData
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
 
@@ -68,16 +71,49 @@ class LoginFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Login successful
+                    val userId = auth.currentUser?.uid
+                    userId?.let {
+                        fetchDetails(it)
+                    }
+
                     Toast.makeText(activity, "Login successful", Toast.LENGTH_SHORT).show()
-                    // Redirect to ApplicationScreen
                     val intent = Intent(activity, ApplicationScreen::class.java)
                     startActivity(intent)
-                    activity?.finish() // Optionally finish the current activity
+                    activity?.finish()
                 } else {
-                    // Login failed
                     Toast.makeText(activity, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
+    private fun fetchDetails(uid: String){
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("estory").child("users").child(uid).child("profile").get()
+            .addOnSuccessListener { snapshot ->
+                if (snapshot.exists()) {
+                    val name = snapshot.child("user_name").getValue(String::class.java)
+                    val phone = snapshot.child("user_phno").getValue(String::class.java)
+                    val nickname = snapshot.child("user_nick_name").getValue(String::class.java)
+                    val language = snapshot.child("user_language").getValue(String::class.java)
+                    val email = auth.currentUser?.email // Assuming you want to store the email from FirebaseAuth
+
+                    // Store data in UserData object
+                    UserData.name = name
+                    UserData.phoneNumber = phone
+                    UserData.nickname = nickname
+                    UserData.email = email
+                    UserData.language = language
+
+                    // Redirect to ApplicationScreen
+                    val intent = Intent(activity, ApplicationScreen::class.java)
+                    startActivity(intent)
+                    activity?.finish()
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(activity, "Failed to fetch user data", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
 }
