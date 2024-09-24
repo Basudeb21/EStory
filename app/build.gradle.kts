@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
     id("com.google.gms.google-services")
 }
 
@@ -52,6 +53,9 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.firebase.analytics.ktx)
+    implementation(libs.glide)
+    kapt(libs.compiler)
+
 
     // Other dependencies
     implementation(libs.androidx.core.ktx.v1101)

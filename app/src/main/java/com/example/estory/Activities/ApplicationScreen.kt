@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
 import com.example.estory.BottomMenuFragments.*
 import com.example.estory.Fetures.SearchFragment
 import com.example.estory.SideNavItems.ContactUsFragment
@@ -21,6 +22,8 @@ import com.example.estory.UserDetails.UserData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import de.hdodenhof.circleimageview.CircleImageView
 
 class ApplicationScreen : AppCompatActivity() {
@@ -31,6 +34,10 @@ class ApplicationScreen : AppCompatActivity() {
     private lateinit var u_name: TextView
     private lateinit var u_mail: TextView
     private lateinit var u_nname: TextView
+    private lateinit var profilePic: CircleImageView // Declare CircleImageView
+    private lateinit var databaseRef: DatabaseReference // Database reference
+    private lateinit var head_pic: CircleImageView
+
 
     private fun init() {
         navbar = findViewById(R.id.navbar)
@@ -40,6 +47,8 @@ class ApplicationScreen : AppCompatActivity() {
         u_name = headerView.findViewById(R.id.user_name)
         u_mail = headerView.findViewById(R.id.user_mail)
         u_nname = headerView.findViewById(R.id.user_nick_name)
+        head_pic = headerView.findViewById(R.id.head_profile_pic) // Correct way to find head_pic
+        databaseRef = FirebaseDatabase.getInstance().getReference("estory/users/${FirebaseAuth.getInstance().currentUser?.uid}/profile/user_profile_pic")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,18 +61,27 @@ class ApplicationScreen : AppCompatActivity() {
         u_nname.text = UserData.nickname ?: "Default Nickname"
         u_mail.text = UserData.email ?: "Default Email"
 
+
         replaceFragment(Home())
 
         val search_btn = findViewById<CircleImageView>(R.id.search)
         search_btn.setOnClickListener{
             replaceFragment(SearchFragment())
         }
-        val profile_btn = findViewById<CircleImageView>(R.id.profile_pic)
-        profile_btn.setOnClickListener{
+        profilePic = findViewById(R.id.profile_pic_actionbar)
+        profilePic.setOnClickListener{
             replaceFragment(Profile())
         }
+        databaseRef.get().addOnSuccessListener { snapshot ->
+            val imageUrl = snapshot.value.toString() // Get the URL as a String
+            Glide.with(this)
+                .load(imageUrl)
+                .into(head_pic)
+        }.addOnFailureListener { exception ->
+            // Handle the error if necessary
+        }
 
-
+        loadProfilePicture()
         navbar.setOnItemSelectedListener { item: MenuItem ->
             if (item.itemId == R.id.home){
                 navView.setCheckedItem(R.id.side_home)
@@ -142,6 +160,16 @@ class ApplicationScreen : AppCompatActivity() {
     }
 
 
+    fun loadProfilePicture() {
+        databaseRef.get().addOnSuccessListener { snapshot ->
+            val imageUrl = snapshot.value.toString() // Get the URL as a String
+            Glide.with(this)
+                .load(imageUrl)
+                .into(profilePic)
+        }.addOnFailureListener { exception ->
+            // Handle the error if necessary
+        }
+    }
 
 
     private fun replaceFragment(fragment: Fragment) {

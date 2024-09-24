@@ -46,7 +46,7 @@
            android:layout_height="30dp"
            android:src="@drawable/avatar"
            android:layout_alignParentEnd="true"
-           android:id="@+id/profile_pic"
+           android:id="@+id/profile_pic_actionbar"
            android:layout_centerVertical="true"
            app:civ_border_width="10dp"
            app:civ_border_color="@color/black"

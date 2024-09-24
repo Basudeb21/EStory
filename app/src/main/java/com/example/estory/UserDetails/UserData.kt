@@ -1,27 +1,26 @@
 package com.example.estory.UserDetails
 
-import android.content.Context
-import com.google.common.base.Strings
+import com.google.firebase.database.FirebaseDatabase
 
 class UserData {
 
-    companion object UserData {
+    companion object {
         var email: String? = null
         var name: String? = null
         var phoneNumber: String? = null
         var nickname: String? = null
         var language: String? = null
-        // Add other user details as needed
+        var profileImageUrl: String? = null // This is used to store the profile image URL
 
-
-        fun clear(){
+        // Clear all user details
+        fun clear() {
             email = null
             name = null
             phoneNumber = null
             nickname = null
             language = null
+            profileImageUrl = null
         }
+
     }
-
-
 }
