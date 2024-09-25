@@ -23,6 +23,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/local_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -50,6 +51,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cloud_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -77,6 +79,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/local_pdf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -104,6 +107,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cloud_pdf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

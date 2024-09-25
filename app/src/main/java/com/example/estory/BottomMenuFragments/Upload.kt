@@ -39,28 +39,21 @@ class Upload : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_upload, container, false)
-
-        // Request necessary permissions
         requestPermissions()
 
-        // Initialize views
         noteTitle = view.findViewById(R.id.note_title)
         noteDesc = view.findViewById(R.id.note_desc)
         copyButton = view.findViewById(R.id.copy)
         pdfButton = view.findViewById(R.id.make_pdf)
         folder = view.findViewById(R.id.open_folder)
 
-
-        // Set onClickListeners for the buttons
         copyButton.setOnClickListener {
             val titleText = noteTitle.text.toString()
             val descText = noteDesc.text.toString()
             if (titleText.isEmpty() || descText.isEmpty()){
-                Toast.makeText(requireContext(), "Filed not be empty", Toast.LENGTH_SHORT).show()
-            }
-            else{
+                Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
+            } else {
                 addToClipboard(titleText, descText)
             }
         }
@@ -69,12 +62,10 @@ class Upload : Fragment() {
             val titleText = noteTitle.text.toString()
             val descText = noteDesc.text.toString()
             if (titleText.isEmpty() || descText.isEmpty()){
-                Toast.makeText(requireContext(), "Filed not be empty", Toast.LENGTH_SHORT).show()
-            }
-            else{
+                Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
+            } else {
                 createPDF(titleText, descText)
             }
-
         }
 
         folder.setOnClickListener {
@@ -100,10 +91,9 @@ class Upload : Fragment() {
     private fun openFolder(){
         val uploadFilesFragment = UploadMenu()
         parentFragmentManager.beginTransaction()
-            .replace(R.id.frame_layout, uploadFilesFragment) // Assuming your container ID is fragment_container
-            .addToBackStack(null) // Optional: allows user to go back to the previous fragment
+            .replace(R.id.frame_layout, uploadFilesFragment)
+            .addToBackStack(null)
             .commit()
-
     }
 
     private fun createPDF(titleText: String, descText: String) {
@@ -130,7 +120,7 @@ class Upload : Fragment() {
         val authorPaint = android.graphics.Paint().apply {
             textSize = 14f
             color = android.graphics.Color.BLUE
-            typeface = android.graphics.Typeface.create(typeface, android.graphics.Typeface.BOLD) // Set to bold, no underline
+            typeface = android.graphics.Typeface.create(typeface, android.graphics.Typeface.BOLD)
         }
 
         val contentPaint = android.graphics.Paint().apply {
@@ -153,12 +143,12 @@ class Upload : Fragment() {
         val directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
         val file = File(directoryPath, fileName)
 
-        // Load watermark bitmap and resize it to 500x500 pixels
+        // Load watermark bitmap and resize it
         val watermarkBitmap = BitmapFactory.decodeResource(resources, R.drawable.itstack)
         val scaledWatermarkBitmap = Bitmap.createScaledBitmap(watermarkBitmap, 500, 500, true)
 
         val watermarkPaint = android.graphics.Paint().apply {
-            alpha = 80 // Set alpha value (0-255) for transparency (lower value = more transparent)
+            alpha = 80 // Set alpha value (0-255) for transparency
         }
 
         var currentPageNumber = 1
@@ -206,7 +196,7 @@ class Upload : Fragment() {
                     pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, currentPageNumber).create()
                     page = pdfDocument.startPage(pageInfo)
                     canvas = page.canvas
-                    canvas.drawRect(leftMargin, topMargin - 20f, pageWidth - rightMargin, pageHeight - bottomMargin, borderPaint)
+                    canvas.drawRect(leftMargin, topMargin - 20f, pageWidth - rightMargin, pageHeight - bottomMargin, borderPaint);
 
                     canvas.drawBitmap(scaledWatermarkBitmap, watermarkX.toFloat(), watermarkY.toFloat(), watermarkPaint)
 
@@ -246,20 +236,15 @@ class Upload : Fragment() {
     }
 
     private fun drawPageNumber(canvas: android.graphics.Canvas, currentPage: Int, pageWidth: Int, bottomMargin: Float, pageHeight: Int) {
-        val pageNumberText = "Page | $currentPage"
-        val pageNumberPaint = android.graphics.Paint().apply {
+        val pageNumber = "Page $currentPage"
+        canvas.drawText(pageNumber, pageWidth - 100f, pageHeight - bottomMargin / 2, android.graphics.Paint().apply {
             textSize = 12f
-            color = android.graphics.Color.GRAY
-        }
-
-        val textWidth = pageNumberPaint.measureText(pageNumberText)
-        val xPosition = pageWidth - 100f
-        val yPosition = pageHeight - bottomMargin + 20f
-        canvas.drawText(pageNumberText, xPosition, yPosition, pageNumberPaint)
+            color = android.graphics.Color.BLACK
+        })
     }
 
     private fun sanitizeFileName(fileName: String): String {
-        return fileName.replace("[^a-zA-Z0-9_\\-\\.\\s]".toRegex(), "_")
+        return fileName.replace("[\\\\/:*?\"<>|]".toRegex(), "_")
     }
 
     companion object {

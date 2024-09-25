@@ -18,6 +18,8 @@
     <color name="card_overlay_txt">#FFFF80</color>
     <color name="pink">#F80056</color>
     <color name="upload_folder_bg">#50B498</color>
+    <color name="pdf_file_bg">#F62746</color>
+
 
 
 </resources>
