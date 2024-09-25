@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.estory.BottomMenuFragments.UploadFragments.UploadMenu
 import com.example.estory.R
 import com.example.estory.UserDetails.AuthUser
 import com.example.estory.UserDetails.UserData
@@ -32,6 +33,7 @@ class Upload : Fragment() {
     private lateinit var noteDesc: EditText
     private lateinit var copyButton: ImageButton
     private lateinit var pdfButton: ImageButton
+    private lateinit var folder: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,20 +50,36 @@ class Upload : Fragment() {
         noteDesc = view.findViewById(R.id.note_desc)
         copyButton = view.findViewById(R.id.copy)
         pdfButton = view.findViewById(R.id.make_pdf)
+        folder = view.findViewById(R.id.open_folder)
+
 
         // Set onClickListeners for the buttons
         copyButton.setOnClickListener {
             val titleText = noteTitle.text.toString()
             val descText = noteDesc.text.toString()
-            addToClipboard(titleText, descText)
+            if (titleText.isEmpty() || descText.isEmpty()){
+                Toast.makeText(requireContext(), "Filed not be empty", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                addToClipboard(titleText, descText)
+            }
         }
 
         pdfButton.setOnClickListener {
             val titleText = noteTitle.text.toString()
             val descText = noteDesc.text.toString()
-            createPDF(titleText, descText)
+            if (titleText.isEmpty() || descText.isEmpty()){
+                Toast.makeText(requireContext(), "Filed not be empty", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                createPDF(titleText, descText)
+            }
+
         }
 
+        folder.setOnClickListener {
+            openFolder()
+        }
         return view
     }
 
@@ -77,6 +95,15 @@ class Upload : Fragment() {
         val clip = ClipData.newPlainText("Copied Text", combinedText)
         clipboard.setPrimaryClip(clip)
         Toast.makeText(requireContext(), "Story copied to clipboard", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun openFolder(){
+        val uploadFilesFragment = UploadMenu()
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout, uploadFilesFragment) // Assuming your container ID is fragment_container
+            .addToBackStack(null) // Optional: allows user to go back to the previous fragment
+            .commit()
+
     }
 
     private fun createPDF(titleText: String, descText: String) {
@@ -130,41 +157,32 @@ class Upload : Fragment() {
         val watermarkBitmap = BitmapFactory.decodeResource(resources, R.drawable.itstack)
         val scaledWatermarkBitmap = Bitmap.createScaledBitmap(watermarkBitmap, 500, 500, true)
 
-        // Create a Paint object for the watermark with transparency
         val watermarkPaint = android.graphics.Paint().apply {
             alpha = 80 // Set alpha value (0-255) for transparency (lower value = more transparent)
         }
 
-        // Variables for pagination
         var currentPageNumber = 1
         var yPos: Float
 
-        // Create the first page
         var pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, currentPageNumber).create()
         var page = pdfDocument.startPage(pageInfo)
         var canvas = page.canvas
 
-        // Draw page border
         canvas.drawRect(leftMargin, topMargin - 20f, pageWidth - rightMargin, pageHeight - bottomMargin, borderPaint)
 
-        // Center the watermark
         val watermarkX = (pageWidth - scaledWatermarkBitmap.width) / 2
         val watermarkY = (pageHeight - scaledWatermarkBitmap.height) / 2
 
-        // Draw watermark with transparency
         canvas.drawBitmap(scaledWatermarkBitmap, watermarkX.toFloat(), watermarkY.toFloat(), watermarkPaint)
 
-        // Draw the title
         val title = "Story Name: $titleText"
         canvas.drawText(title, (pageWidth - titlePaint.measureText(title)) / 2, topMargin, titlePaint)
         yPos = topMargin + lineHeight * 2
 
-        // Draw author name
         val author = "~ By: ${UserData.nickname}"
         canvas.drawText(author, (pageWidth - authorPaint.measureText(author)) / 2, yPos, authorPaint)
         yPos += lineHeight
 
-        // Wrap the content line to fit within the page width
         val words = descText.split(" ")
         var currentLine = StringBuilder()
         var hasContentOnPage = false
@@ -173,7 +191,6 @@ class Upload : Fragment() {
             val testLine = currentLine.toString() + " " + word
             val testLineWidth = contentPaint.measureText(testLine)
 
-            // If the line is too long, draw the current line and start a new one
             if (testLineWidth > (pageWidth - leftMargin - rightMargin - rightPadding)) {
                 if (currentLine.isNotEmpty()) {
                     canvas.drawText(currentLine.toString(), leftMargin + 10, yPos, contentPaint)
@@ -181,19 +198,16 @@ class Upload : Fragment() {
                     hasContentOnPage = true
                 }
 
-                // Check if we need to create a new page
                 if (yPos + lineHeight > pageHeight - bottomMargin) {
                     drawPageNumber(canvas, currentPageNumber, pageWidth, bottomMargin, pageHeight)
                     pdfDocument.finishPage(page)
 
-                    // Create a new page
                     currentPageNumber++
                     pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, currentPageNumber).create()
                     page = pdfDocument.startPage(pageInfo)
                     canvas = page.canvas
                     canvas.drawRect(leftMargin, topMargin - 20f, pageWidth - rightMargin, pageHeight - bottomMargin, borderPaint)
 
-                    // Draw watermark with transparency
                     canvas.drawBitmap(scaledWatermarkBitmap, watermarkX.toFloat(), watermarkY.toFloat(), watermarkPaint)
 
                     yPos = topMargin // Reset Y position for the new page
@@ -205,14 +219,12 @@ class Upload : Fragment() {
             }
         }
 
-        // Draw any remaining text in the current line
         if (currentLine.isNotEmpty()) {
             canvas.drawText(currentLine.toString(), leftMargin + 10, yPos, contentPaint)
             yPos += lineHeight
             hasContentOnPage = true
         }
 
-        // Finish the last page only if there was content drawn
         if (hasContentOnPage) {
             drawPageNumber(canvas, currentPageNumber, pageWidth, bottomMargin, pageHeight)
             pdfDocument.finishPage(page)
@@ -222,7 +234,6 @@ class Upload : Fragment() {
             return
         }
 
-        // Write the document content to the file
         try {
             pdfDocument.writeTo(FileOutputStream(file))
             Toast.makeText(requireContext(), "PDF saved at: ${file.absolutePath}", Toast.LENGTH_LONG).show()
@@ -234,7 +245,6 @@ class Upload : Fragment() {
         }
     }
 
-    // Function to draw page number below the bottom border
     private fun drawPageNumber(canvas: android.graphics.Canvas, currentPage: Int, pageWidth: Int, bottomMargin: Float, pageHeight: Int) {
         val pageNumberText = "Page | $currentPage"
         val pageNumberPaint = android.graphics.Paint().apply {
@@ -242,19 +252,12 @@ class Upload : Fragment() {
             color = android.graphics.Color.GRAY
         }
 
-        // Calculate the width of the page number text
         val textWidth = pageNumberPaint.measureText(pageNumberText)
-
-        // Adjust the X position to leave 100 pixels from the right margin
-        val xPosition = pageWidth - 100f // 100 pixels from the right edge
-
-        // Set the Y position below the bottom border
-        val yPosition = pageHeight - bottomMargin + 20f // Move down by 20 pixels from the bottom margin
-
+        val xPosition = pageWidth - 100f
+        val yPosition = pageHeight - bottomMargin + 20f
         canvas.drawText(pageNumberText, xPosition, yPosition, pageNumberPaint)
     }
 
-    // Function to sanitize file name
     private fun sanitizeFileName(fileName: String): String {
         return fileName.replace("[^a-zA-Z0-9_\\-\\.\\s]".toRegex(), "_")
     }
