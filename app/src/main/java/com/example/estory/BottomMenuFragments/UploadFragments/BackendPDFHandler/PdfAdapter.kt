@@ -15,7 +15,7 @@ class PdfAdapter(private val pdfUris: List<Uri>, private val onItemClick: (Uri) 
         private val pdfName: TextView = itemView.findViewById(R.id.pdf_name)
 
         fun bind(uri: Uri) {
-            pdfName.text = uri.lastPathSegment // or some other way to derive the name
+            pdfName.text = uri.lastPathSegment
             itemView.setOnClickListener { onItemClick(uri) }
         }
     }

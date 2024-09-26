@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.firebase.storage.ktx)
     implementation(libs.firebase.analytics.ktx)
     implementation(libs.glide)
+    implementation(libs.androidx.recyclerview)
     kapt(libs.compiler)
 
 

@@ -34,6 +34,8 @@ class Upload : Fragment() {
     private lateinit var copyButton: ImageButton
     private lateinit var pdfButton: ImageButton
     private lateinit var folder: ImageButton
+    private lateinit var saveLocalButton: ImageButton
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +49,8 @@ class Upload : Fragment() {
         copyButton = view.findViewById(R.id.copy)
         pdfButton = view.findViewById(R.id.make_pdf)
         folder = view.findViewById(R.id.open_folder)
+        saveLocalButton = view.findViewById(R.id.save_local)
+
 
         copyButton.setOnClickListener {
             val titleText = noteTitle.text.toString()
@@ -71,6 +75,19 @@ class Upload : Fragment() {
         folder.setOnClickListener {
             openFolder()
         }
+
+        saveLocalButton.setOnClickListener {
+            val titleText = noteTitle.text.toString()
+            val descText = noteDesc.text.toString()
+            if (titleText.isEmpty() || descText.isEmpty()) {
+                Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
+            } else {
+                saveTextFile(titleText, descText)
+            }
+        }
+
+
+
         return view
     }
 
@@ -95,6 +112,36 @@ class Upload : Fragment() {
             .addToBackStack(null)
             .commit()
     }
+
+    private fun saveTextFile(titleText: String, descText: String) {
+        // Define the file name and file path
+        val fileName = "${sanitizeFileName(titleText)}_${UserData.nickname}.txt"
+        val directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
+        val file = File(directoryPath, fileName)
+
+        // Check if file already exists
+        if (file.exists()) {
+            Toast.makeText(requireContext(), "File already exists: $fileName", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        try {
+            // Write the text to the file
+            val fileOutputStream = FileOutputStream(file)
+            fileOutputStream.write(descText.toByteArray())
+            fileOutputStream.close()
+
+            Toast.makeText(requireContext(), "Text saved locally as: $fileName", Toast.LENGTH_LONG).show()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Toast.makeText(requireContext(), "Error saving text file", Toast.LENGTH_LONG).show()
+        }
+    }
+
+
+
+
+
 
     private fun createPDF(titleText: String, descText: String) {
         val pdfDocument = PdfDocument()

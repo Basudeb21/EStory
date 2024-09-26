@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomMenuFragments.UploadFragments.StoryOutput">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/img_btn">
+
+            <ImageButton
+                android:id="@+id/save_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/img_btn"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/update_file" />
+            <ImageButton
+                android:id="@+id/share_story"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/img_btn"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/share" />
+            <ImageButton
+                android:id="@+id/save_db"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/img_btn"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/delete_file" />
+            <ImageButton
+                android:id="@+id/copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/img_btn"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/copy" />
+            <ImageButton
+                android:id="@+id/open_folder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/img_btn"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/folder" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="Story title"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <!-- ScrollView to make note_desc scrollable -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/note_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/edit_text_style"
+                android:paddingLeft="15dp"
+                android:gravity="top|start"
+                android:hint="Write story here..."
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="17sp"
+                tools:ignore="VisualLintTextFieldSize" />
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

@@ -20,6 +20,8 @@ class UploadMenu : Fragment() {
 
         // Find the LinearLayout for local_pdf
         val localPdfButton: LinearLayout = view.findViewById(R.id.local_pdf)
+        val localTxtButton: LinearLayout = view.findViewById(R.id.local_txt)
+
 
         // Set an OnClickListener to navigate to PdfListFragment
         localPdfButton.setOnClickListener {
@@ -28,6 +30,13 @@ class UploadMenu : Fragment() {
             fragmentTransaction.replace(R.id.frame_layout, PdfListFragment())
             fragmentTransaction.addToBackStack(null) // Optional: add to back stack for navigation
             fragmentTransaction.commit() // Commit the transaction
+        }
+
+        localTxtButton.setOnClickListener {
+            val fragmentTransaction = parentFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.frame_layout, LocalTextFilesFragment())
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
 
         return view

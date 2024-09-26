@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.estory.Adapters.PdfAdapter
 import com.example.estory.R
+import com.example.estory.UserDetails.AuthUser
 import java.io.File
 import java.io.FileOutputStream
-import java.io.InputStream
 
 class PdfListFragment : Fragment() {
 
@@ -25,9 +26,9 @@ class PdfListFragment : Fragment() {
         private const val REQUEST_CODE_PDF_PICKER = 100
     }
 
+    private val pdfUris = mutableListOf<Uri>() // Store selected PDF Uris
     private lateinit var recyclerView: RecyclerView
     private lateinit var pdfAdapter: PdfAdapter
-    private val pdfUris = mutableListOf<Uri>() // Store selected PDF Uris
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,26 +37,33 @@ class PdfListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_pdf_list, container, false)
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        // Initialize the adapter with the list of PDF Uris
+        pdfUris.addAll(loadPdfFiles()) // Load your PDF files into the pdfUris list
         pdfAdapter = PdfAdapter(pdfUris) { pdfUri ->
-            openPDFViewer(pdfUri) // Use the openPDFViewer method
+            // Handle PDF click (open the PDF)
+            openPDFViewer(pdfUri)
         }
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = pdfAdapter
 
-        // Allow user to select PDF using an intent
-        selectPdf()
-
         return view
     }
 
-    private fun selectPdf() {
-        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-            type = "application/pdf"
-            addCategory(Intent.CATEGORY_OPENABLE)
+    private fun loadPdfFiles(): List<Uri> {
+        val pdfFiles = mutableListOf<Uri>() // Change the type to List<Uri>
+        val userId = AuthUser().getCurrentUser()?.uid ?: return pdfFiles // Get user ID
+        val directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
+        val pdfDirectory = File(directoryPath)
+
+        if (pdfDirectory.exists() && pdfDirectory.isDirectory) {
+            val files = pdfDirectory.listFiles { _, name ->
+                name.endsWith(".pdf") && name.contains(userId) // Filter files with user ID
+            }
+            files?.forEach { file ->
+                pdfFiles.add(Uri.fromFile(file)) // Add the Uri of the file
+            }
         }
-        startActivityForResult(intent, REQUEST_CODE_PDF_PICKER)
+        return pdfFiles
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -63,10 +71,9 @@ class PdfListFragment : Fragment() {
 
         if (requestCode == REQUEST_CODE_PDF_PICKER && resultCode == Activity.RESULT_OK) {
             data?.data?.let { pdfUri ->
-                // Add the selected Uri to the list and notify the adapter
                 pdfUris.add(pdfUri)
-                pdfAdapter.notifyDataSetChanged() // Update the RecyclerView
-                openPDFViewer(pdfUri) // Open the PDF viewer directly with the Uri
+                pdfAdapter.notifyDataSetChanged()
+                openPDFViewer(pdfUri)
             } ?: run {
                 Toast.makeText(requireContext(), "No PDF selected!", Toast.LENGTH_SHORT).show()
             }
@@ -87,7 +94,7 @@ class PdfListFragment : Fragment() {
         val intent = Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(fileUri, "application/pdf")
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY) // Optional: prevents showing in the app history
+            addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
         }
 
         try {
