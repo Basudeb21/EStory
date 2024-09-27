@@ -1,13 +1,7 @@
 package com.example.estory.BottomMenuFragments
 
 import android.Manifest
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.pdf.PdfDocument
 import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
@@ -19,13 +13,10 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.estory.BottomMenuFragments.UploadFragments.UploadMenu
+import com.example.estory.BottomMenuFragments.UploadFragments.FeaturesHandler
 import com.example.estory.R
-import com.example.estory.UserDetails.AuthUser
 import com.example.estory.UserDetails.UserData
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
+import com.google.firebase.database.DatabaseReference
 
 class Upload : Fragment() {
 
@@ -35,7 +26,10 @@ class Upload : Fragment() {
     private lateinit var pdfButton: ImageButton
     private lateinit var folder: ImageButton
     private lateinit var saveLocalButton: ImageButton
+    private lateinit var saveDbButton: ImageButton
+    private lateinit var database: DatabaseReference
 
+    private val featuresHandler = FeaturesHandler()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,30 +44,31 @@ class Upload : Fragment() {
         pdfButton = view.findViewById(R.id.make_pdf)
         folder = view.findViewById(R.id.open_folder)
         saveLocalButton = view.findViewById(R.id.save_local)
+        saveDbButton = view.findViewById(R.id.save_db)
 
 
         copyButton.setOnClickListener {
             val titleText = noteTitle.text.toString()
             val descText = noteDesc.text.toString()
-            if (titleText.isEmpty() || descText.isEmpty()){
+            if (titleText.isEmpty() || descText.isEmpty()) {
                 Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
             } else {
-                addToClipboard(titleText, descText)
+                featuresHandler.addToClipboard(requireContext(), titleText, descText)
             }
         }
 
         pdfButton.setOnClickListener {
             val titleText = noteTitle.text.toString()
             val descText = noteDesc.text.toString()
-            if (titleText.isEmpty() || descText.isEmpty()){
+            if (titleText.isEmpty() || descText.isEmpty()) {
                 Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
             } else {
-                createPDF(titleText, descText)
+                featuresHandler.createPDF(requireContext(), titleText, descText)
             }
         }
 
         folder.setOnClickListener {
-            openFolder()
+            featuresHandler.openFolder(this)
         }
 
         saveLocalButton.setOnClickListener {
@@ -82,11 +77,29 @@ class Upload : Fragment() {
             if (titleText.isEmpty() || descText.isEmpty()) {
                 Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
             } else {
-                saveTextFile(titleText, descText)
+                featuresHandler.saveTextFile(requireContext(), titleText, descText)
             }
         }
 
+        saveDbButton.setOnClickListener {
+            val titleText = noteTitle.text.toString()
+            val descText = noteDesc.text.toString()
 
+            if (titleText.isEmpty() || descText.isEmpty()) {
+                Toast.makeText(requireContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show()
+            } else {
+                featuresHandler.saveStoryToFirebase(requireContext(), titleText, descText) { success ->
+                    if (success) {
+                        // Optional: Handle successful save (e.g., reset fields or show success message)
+                        noteTitle.text.clear()
+                        noteDesc.text.clear()
+                    } else {
+                        // Optional: Handle failure case
+                        Toast.makeText(requireContext(), "Failed to save story to Firebase", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
 
         return view
     }
@@ -95,203 +108,6 @@ class Upload : Fragment() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE)
         }
-    }
-
-    private fun addToClipboard(titleText: String, descText: String) {
-        val combinedText = "Story Name: $titleText\n\nWritten By: ${UserData.nickname}\n\nStory: $descText"
-        val clipboard = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("Copied Text", combinedText)
-        clipboard.setPrimaryClip(clip)
-        Toast.makeText(requireContext(), "Story copied to clipboard", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun openFolder(){
-        val uploadFilesFragment = UploadMenu()
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.frame_layout, uploadFilesFragment)
-            .addToBackStack(null)
-            .commit()
-    }
-
-    private fun saveTextFile(titleText: String, descText: String) {
-        // Define the file name and file path
-        val fileName = "${sanitizeFileName(titleText)}_${UserData.nickname}.txt"
-        val directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
-        val file = File(directoryPath, fileName)
-
-        // Check if file already exists
-        if (file.exists()) {
-            Toast.makeText(requireContext(), "File already exists: $fileName", Toast.LENGTH_LONG).show()
-            return
-        }
-
-        try {
-            // Write the text to the file
-            val fileOutputStream = FileOutputStream(file)
-            fileOutputStream.write(descText.toByteArray())
-            fileOutputStream.close()
-
-            Toast.makeText(requireContext(), "Text saved locally as: $fileName", Toast.LENGTH_LONG).show()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            Toast.makeText(requireContext(), "Error saving text file", Toast.LENGTH_LONG).show()
-        }
-    }
-
-
-
-
-
-
-    private fun createPDF(titleText: String, descText: String) {
-        val pdfDocument = PdfDocument()
-        val pageWidth = 595
-        val pageHeight = 842
-
-        // Define margins and line height
-        val leftMargin = 50f
-        val rightMargin = 50f
-        val topMargin = 80f
-        val bottomMargin = 50f
-        val lineHeight = 20f
-        val rightPadding = 10f
-
-        // Define paint styles
-        val titlePaint = android.graphics.Paint().apply {
-            textSize = 16f
-            color = android.graphics.Color.BLUE
-            isUnderlineText = true
-            typeface = android.graphics.Typeface.create(typeface, android.graphics.Typeface.BOLD)
-        }
-
-        val authorPaint = android.graphics.Paint().apply {
-            textSize = 14f
-            color = android.graphics.Color.BLUE
-            typeface = android.graphics.Typeface.create(typeface, android.graphics.Typeface.BOLD)
-        }
-
-        val contentPaint = android.graphics.Paint().apply {
-            textSize = 12f
-            color = android.graphics.Color.BLACK
-        }
-
-        val borderPaint = android.graphics.Paint().apply {
-            color = android.graphics.Color.BLACK
-            strokeWidth = 2f
-            style = android.graphics.Paint.Style.STROKE
-        }
-
-        // Fetch current user's UID
-        val currentUser = AuthUser().getCurrentUser()
-        val u_id = currentUser?.uid ?: "UnknownUID"
-
-        // Define file path and name
-        val fileName = "${sanitizeFileName(titleText)}_${UserData.nickname}_${u_id}.pdf"
-        val directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
-        val file = File(directoryPath, fileName)
-
-        // Load watermark bitmap and resize it
-        val watermarkBitmap = BitmapFactory.decodeResource(resources, R.drawable.itstack)
-        val scaledWatermarkBitmap = Bitmap.createScaledBitmap(watermarkBitmap, 500, 500, true)
-
-        val watermarkPaint = android.graphics.Paint().apply {
-            alpha = 80 // Set alpha value (0-255) for transparency
-        }
-
-        var currentPageNumber = 1
-        var yPos: Float
-
-        var pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, currentPageNumber).create()
-        var page = pdfDocument.startPage(pageInfo)
-        var canvas = page.canvas
-
-        canvas.drawRect(leftMargin, topMargin - 20f, pageWidth - rightMargin, pageHeight - bottomMargin, borderPaint)
-
-        val watermarkX = (pageWidth - scaledWatermarkBitmap.width) / 2
-        val watermarkY = (pageHeight - scaledWatermarkBitmap.height) / 2
-
-        canvas.drawBitmap(scaledWatermarkBitmap, watermarkX.toFloat(), watermarkY.toFloat(), watermarkPaint)
-
-        val title = "Story Name: $titleText"
-        canvas.drawText(title, (pageWidth - titlePaint.measureText(title)) / 2, topMargin, titlePaint)
-        yPos = topMargin + lineHeight * 2
-
-        val author = "~ By: ${UserData.nickname}"
-        canvas.drawText(author, (pageWidth - authorPaint.measureText(author)) / 2, yPos, authorPaint)
-        yPos += lineHeight
-
-        val words = descText.split(" ")
-        var currentLine = StringBuilder()
-        var hasContentOnPage = false
-
-        for (word in words) {
-            val testLine = currentLine.toString() + " " + word
-            val testLineWidth = contentPaint.measureText(testLine)
-
-            if (testLineWidth > (pageWidth - leftMargin - rightMargin - rightPadding)) {
-                if (currentLine.isNotEmpty()) {
-                    canvas.drawText(currentLine.toString(), leftMargin + 10, yPos, contentPaint)
-                    yPos += lineHeight
-                    hasContentOnPage = true
-                }
-
-                if (yPos + lineHeight > pageHeight - bottomMargin) {
-                    drawPageNumber(canvas, currentPageNumber, pageWidth, bottomMargin, pageHeight)
-                    pdfDocument.finishPage(page)
-
-                    currentPageNumber++
-                    pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, currentPageNumber).create()
-                    page = pdfDocument.startPage(pageInfo)
-                    canvas = page.canvas
-                    canvas.drawRect(leftMargin, topMargin - 20f, pageWidth - rightMargin, pageHeight - bottomMargin, borderPaint);
-
-                    canvas.drawBitmap(scaledWatermarkBitmap, watermarkX.toFloat(), watermarkY.toFloat(), watermarkPaint)
-
-                    yPos = topMargin // Reset Y position for the new page
-                }
-
-                currentLine = StringBuilder(word) // Start new line with the current word
-            } else {
-                currentLine.append(" ").append(word)
-            }
-        }
-
-        if (currentLine.isNotEmpty()) {
-            canvas.drawText(currentLine.toString(), leftMargin + 10, yPos, contentPaint)
-            yPos += lineHeight
-            hasContentOnPage = true
-        }
-
-        if (hasContentOnPage) {
-            drawPageNumber(canvas, currentPageNumber, pageWidth, bottomMargin, pageHeight)
-            pdfDocument.finishPage(page)
-        } else {
-            pdfDocument.close() // Close document if no content was drawn
-            Toast.makeText(requireContext(), "No content to save in PDF", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        try {
-            pdfDocument.writeTo(FileOutputStream(file))
-            Toast.makeText(requireContext(), "PDF saved at: ${file.absolutePath}", Toast.LENGTH_LONG).show()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            Toast.makeText(requireContext(), "Error saving PDF", Toast.LENGTH_LONG).show()
-        } finally {
-            pdfDocument.close() // Close the document
-        }
-    }
-
-    private fun drawPageNumber(canvas: android.graphics.Canvas, currentPage: Int, pageWidth: Int, bottomMargin: Float, pageHeight: Int) {
-        val pageNumber = "Page $currentPage"
-        canvas.drawText(pageNumber, pageWidth - 100f, pageHeight - bottomMargin / 2, android.graphics.Paint().apply {
-            textSize = 12f
-            color = android.graphics.Color.BLACK
-        })
-    }
-
-    private fun sanitizeFileName(fileName: String): String {
-        return fileName.replace("[\\\\/:*?\"<>|]".toRegex(), "_")
     }
 
     companion object {

@@ -47,7 +47,7 @@ class ApplicationScreen : AppCompatActivity() {
         u_name = headerView.findViewById(R.id.user_name)
         u_mail = headerView.findViewById(R.id.user_mail)
         u_nname = headerView.findViewById(R.id.user_nick_name)
-        head_pic = headerView.findViewById(R.id.head_profile_pic) // Correct way to find head_pic
+        head_pic = headerView.findViewById(R.id.head_profile_pic)
         databaseRef = FirebaseDatabase.getInstance().getReference("estory/users/${FirebaseAuth.getInstance().currentUser?.uid}/profile/user_profile_pic")
     }
 
@@ -182,10 +182,8 @@ class ApplicationScreen : AppCompatActivity() {
             return
         }
 
-        // Clear the back stack
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 
-        // Replace the fragment
         supportFragmentManager.beginTransaction()
             .replace(R.id.frame_layout, fragment)
             .commit()

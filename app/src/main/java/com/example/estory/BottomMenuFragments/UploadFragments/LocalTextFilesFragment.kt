@@ -1,5 +1,6 @@
 package com.example.estory.BottomMenuFragments.UploadFragments
 
+import TextFileAdapter
 import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ class LocalTextFilesFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TextFileAdapter
-    private var textFiles: List<String> = listOf() // This should be your list of text files
+    private var textFiles: List<String> = listOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,47 +25,38 @@ class LocalTextFilesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_local_text_files, container, false)
 
-        // Initialize the RecyclerView
         recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Initialize the adapter with a click listener
-        adapter = TextFileAdapter(textFiles) { fileName ->
-            openStoryOutput(fileName) // Open the StoryOutput fragment
-        }
+        adapter = TextFileAdapter(textFiles, { fileName ->
+            openStoryOutput(fileName)
+        }, { fileName, action ->
+            handleMenuAction(fileName, action)
+        })
         recyclerView.adapter = adapter
 
-        // Load text files after initializing the adapter
         loadTextFiles()
 
         return view
     }
 
     private fun loadTextFiles() {
-        // Define the directory path
+
         val directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
         val directory = File(directoryPath)
 
-        // Check if the directory exists
         if (directory.exists()) {
-            // Get a list of text files in the directory
             val files = directory.listFiles { file -> file.isFile && file.name.endsWith(".txt") }
-            if (files != null && files.isNotEmpty()) {
-                textFiles = files.map { it.name } // Map to a list of file names
-            } else {
-                textFiles = listOf() // No files found
-            }
+            textFiles = files?.map { it.name } ?: listOf()
         } else {
             Toast.makeText(requireContext(), "Directory does not exist", Toast.LENGTH_SHORT).show()
-            textFiles = listOf() // Set to empty list if directory doesn't exist
+            textFiles = listOf()
         }
 
-        // Update the adapter with the loaded files
         adapter.updateFiles(textFiles)
     }
 
     private fun openStoryOutput(fileName: String) {
-        // Create a new instance of StoryOutput and pass the file name
         val bundle = Bundle().apply {
             putString("FILE_NAME", fileName)
         }
@@ -72,10 +64,33 @@ class LocalTextFilesFragment : Fragment() {
             arguments = bundle
         }
 
-        // Navigate to the StoryOutput fragment
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.frame_layout, storyOutputFragment)
             .addToBackStack(null)
             .commit()
+    }
+
+    private fun handleMenuAction(fileName: String, action: String) {
+        when (action) {
+            "open" -> openStoryOutput(fileName)
+            "update" -> updateFile(fileName)
+            "delete" -> deleteFile(fileName)
+        }
+    }
+
+    private fun updateFile(fileName: String) {
+        // Implement your logic to update the file
+        Toast.makeText(requireContext(), "Updating $fileName", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun deleteFile(fileName: String) {
+        // Implement your logic to delete the file
+        val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileName)
+        if (file.exists() && file.delete()) {
+            Toast.makeText(requireContext(), "$fileName deleted", Toast.LENGTH_SHORT).show()
+            loadTextFiles() // Reload files after deletion
+        } else {
+            Toast.makeText(requireContext(), "Failed to delete $fileName", Toast.LENGTH_SHORT).show()
+        }
     }
 }

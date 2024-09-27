@@ -68,7 +68,6 @@ class LoginActivity : AppCompatActivity() {
                     UserData.email = email
                     UserData.language = language
 
-                    // Redirect to ApplicationScreen
                     startActivity(Intent(this, ApplicationScreen::class.java))
                     finish()
                 } else {
